@@ -38,3 +38,7 @@ install: check-python
 .PHONY: isort
 isort:
 	isort $(SRC_DIR)
+
+.PHONY: test
+test: check-python
+	pytest --pyargs $(SRC_DIR)
