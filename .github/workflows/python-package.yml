@@ -39,6 +39,7 @@ jobs:
         name: wheel
         path: distwhere 
     - name: Deploy to PyPI
+      uses: actions/checkout@v2
       run: |
         make deploy
   clean:
