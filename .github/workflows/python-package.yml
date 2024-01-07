@@ -1,0 +1,20 @@
+name: Python package
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11.6'
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Run tests with pytest
+      run: |
+        make test
