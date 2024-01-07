@@ -4,9 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "integra_mix"
+version = "0.1.0"
 authors = [{name = "Stefano"}]
 requires-python = ">=3.11.6"
-dynamic = ["dependencies","readme","version"]
+dynamic = ["dependencies","readme"]
 license = {file = "LICENSE"}
 
 [tool.setuptools.packages.find]
