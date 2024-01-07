@@ -18,3 +18,15 @@ jobs:
     - name: Run tests with pytest
       run: |
         make test
+    - name: Build package
+      run: |
+        make build
+  clean:
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+    - uses: actions/checkout@v2
+    - name: Clean temporary directories
+      run: |
+        make clean
