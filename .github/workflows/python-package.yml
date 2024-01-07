@@ -21,8 +21,28 @@ jobs:
     - name: Build package
       run: |
         make build
-  clean:
+    - name: Upload wheel
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheel
+        path: dist/*.whl
+
+  deploy:
     needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+  
+    steps:
+    - name: Download wheel
+      uses: actions/download-artifact@v2
+      with:
+        name: wheel
+        path: distwhere 
+    - name: Deploy to PyPI
+      run: |
+        make deploy
+  clean:
+    needs: [build, deploy]
     runs-on: ubuntu-latest
     if: always()
     steps:

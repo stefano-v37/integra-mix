@@ -32,6 +32,10 @@ clean:
 create-venv: check-python
 	python -m venv venv
 
+.PHONY: deploy
+deploy:
+	echo "Deployment deactivated for the moment"
+
 .PHONY: format
 format: autoflake black isort
 
